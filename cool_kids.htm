@@ -8,7 +8,6 @@ border:5px solid red ;
 
 
 
-
 }
 </style>
 
@@ -33,7 +32,7 @@ ctx.fill();
 <script>
 ctx.beginPath();
 
-ctx.arc(90,75,10,0,Math.PI*2,true);
+ctx.arc(100,60,50,0,Math.PI*2,true);
 
 ctx.closePath();
 ctx.fill();
@@ -44,11 +43,12 @@ function DrawCircle(x,y)
 	ctx.closePath();
 	ctx.fill();
 }
-DrawCircle(105,75);
-DrawCircle(105,90);
-DrawCircle(105,105);
-DrawCircle(105,120);
-DrawCircle(105,135);
+ 
+
+
+for (var i =  0;i <= 300; i+=20) {
+	DrawCircle(200,i);
+};
 
 </script>
 

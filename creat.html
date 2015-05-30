@@ -1,11 +1,11 @@
-<html>
+ <html>
 <head>
 <style>
-#drawing{ width:300px; height:300px;
+#drawing{ 
+
 border:5px solid red ;
 
-
-
+ 
 
 
 
@@ -15,21 +15,48 @@ border:5px solid red ;
 </head>
 
 <body>
-<canvas width=300  height=300 id="drawing"></canvas>
+<canvas width=500 height=500 id="drawing">
+
+
+
+</canvas>
 <script>
 var canvas=document.getElementById ("drawing");
 var ctx=canvas.getContext("2d");
+
+ctx.arc(75,75,10,0,Math.PI*2,true);
+
+ctx.closePath();
+
+ctx.fill();
+ </script>
+<script>
 ctx.beginPath();
- 
- ctx.arc(75,75,10,0,Math.PI*2,true);
 
-  ctx.closePath();
+ctx.arc(100,60,50,0,Math.PI*2,true);
 
-  ctx.fill();
+ctx.closePath();
+ctx.fill();
+function DrawCircle(x,y)
+{
+	ctx.beginPath();
+	ctx.arc(x,y,10,0,Math.PI*2,true);
+	ctx.closePath();
+	ctx.fillStyle = '#8ED6FF'
+	ctx.fill();
+}
+ canvas.addEventListener("mousemove",function(event){
+ DrawCircle(event.x,event.y)	
+ })
 
 
+for (var i =  0;i <= 300; i+=20) {
+	DrawCircle(200,i);
+};
 
 </script>
+
+
 
 </body>
 

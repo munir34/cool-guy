@@ -23,6 +23,7 @@ border:5px solid red ;
 <script>
 var canvas=document.getElementById ("drawing");
 var ctx=canvas.getContext("2d");
+var isdrawing=true;
 
 ctx.arc(75,75,10,0,Math.PI*2,true);
 
@@ -45,9 +46,16 @@ function DrawCircle(x,y)
 	ctx.fillStyle = '#8ED6FF'
 	ctx.fill();
 }
- canvas.addEventListener("mousemove",function(event){
- DrawCircle(event.x,event.y)	
- })
+canvas.addEventListener("mousemove",function(event){
+	if (isdrawing) {
+		DrawCircle(event.x,event.y)
+	}	
+})
+
+canvas.addEventListener("click",function(event){
+	isdrawing=!isdrawing;
+
+})
 
 
 for (var i =  0;i <= 300; i+=20) {
